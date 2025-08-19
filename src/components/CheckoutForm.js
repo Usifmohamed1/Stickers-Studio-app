@@ -53,17 +53,15 @@ function CheckoutForm({ customer, setCustomer, totalQty, totalsByType, onBack, o
             onChange={e => setCustomer({ ...customer, payWith: e.target.value, payNumber: "" })}
             className="w-full px-3 py-2 rounded-xl border"
           >
-            <option value="">--</option>
             <option value="cash">Cash</option>
             <option value="vodafoneCash">Vodafone Cash</option>
             <option value="instapay">Instapay</option>
           </select>
         </label>
 
-        {(payWith === "cash" || payWith === "vodafoneCash" || payWith === "instapay") && (
           <label className="block">
             <div className="mb-1 text-sm">
-              {payWith === "cash" ? "Payment Price" : "Payment Number"}
+              {payWith === "cash" ? "Payment Price" : "Total Price"}
             </div>
             <input
               value={payNumber}
@@ -72,7 +70,7 @@ function CheckoutForm({ customer, setCustomer, totalQty, totalsByType, onBack, o
               placeholder="Enter Payment Price "
             />
           </label>
-        )}
+        
 
         {(payWith === "vodafoneCash" || payWith === "instapay") && (
           <div className="flex flex-col items-center justify-center">
