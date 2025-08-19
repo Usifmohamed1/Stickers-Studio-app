@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzTatBX7CuW7Xbe0FDwZXTzH4QRrZl3bUGFJA5EjVkLRcyg0y_7U2MZ8Ob50G8Eb89HAg/exec";
+  "https://script.google.com/macros/s/AKfycbwkH6IkUo8SYNSe6dzx9zYXK7jBnm32SxXvPScA6uriMS2MVo27lHFqrfEDCQZVYLuO9g/exec";
 
 function Modal({
   title,
