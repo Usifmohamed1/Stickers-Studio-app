@@ -21,7 +21,7 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [category, setCategory] = useState(null); // 'stickers' | 'posters'
   const [cart, setCart] = useState({}); // { productId: qty }
-  const [customer, setCustomer] = useState({ name: "", phone: "", governorate: "Alexandria", otherGov: "", notes: "", payWith: "cash", payNumber: "" });
+  const [customer, setCustomer] = useState({ name: "", phone: "", governorate: "Alexandria", otherGov: "", payWith: "cash", payNumber: "" , notes: ""});
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState(null);
   const [modal, setModal] = useState(null); // {title, msg, onConfirm, onCancel, confirmText, cancelText}
