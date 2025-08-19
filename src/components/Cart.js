@@ -176,13 +176,13 @@ function Cart({ items, onAdd, onSub, onAddMore, onNext, setCart, onBack }) {
             onClick={handleBack}
             className="px-3 py-1.5 rounded-2xl bg-sky-400 text-white text-2xl font-Chewy shadow-2xl active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] border-2 border-black"
           >
-            ←
+            Back
           </button>
           <button
             onClick={onNext}
             className="px-3 py-1.5 rounded-2xl bg-sky-400 text-white text-2xl font-Chewy shadow-2xl active:scale-95 transition-transform border-2 border-black [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
           >
-            →
+            Next 
           </button>
         </div>
       </div>
@@ -252,7 +252,7 @@ function Cart({ items, onAdd, onSub, onAddMore, onNext, setCart, onBack }) {
       <div className="flex items-center justify-between mt-2">
         <div className="">&nbsp;</div>
         <div className="flex gap-2">
-          <button onClick={onAddMore} className="px-3 py-1.5 rounded-xl border border-gray-300 bg-green-700  font-Chewy text-white tracking-wide active:scale-95 transition-transform">
+          <button onClick={onAddMore} className="px-3 py-1.5 rounded-xl border-2 border-black [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] bg-green-700  font-Chewy text-white tracking-wide active:scale-95 transition-transform">
             Add More Products
           </button>
         </div>
