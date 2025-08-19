@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo, useState, useEffect } from 'react';
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTatBX7CuW7Xbe0FDwZXTzH4QRrZl3bUGFJA5EjVkLRcyg0y_7U2MZ8Ob50G8Eb89HAg/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkH6IkUo8SYNSe6dzx9zYXK7jBnm32SxXvPScA6uriMS2MVo27lHFqrfEDCQZVYLuO9g/exec";
 
 // Helper to shuffle an array
 const shuffle = (arr) => {
@@ -21,7 +21,7 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [category, setCategory] = useState(null); // 'stickers' | 'posters'
   const [cart, setCart] = useState({}); // { productId: qty }
-  const [customer, setCustomer] = useState({ name: "", phone: "", governorate: "", otherGov: "", notes: "" });
+  const [customer, setCustomer] = useState({ name: "", phone: "", governorate: "Alexandria", otherGov: "", notes: "", payWith: "cash", payNumber: "" });
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState(null);
   const [modal, setModal] = useState(null); // {title, msg, onConfirm, onCancel, confirmText, cancelText}
