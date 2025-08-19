@@ -5,11 +5,16 @@ function Header({ logoUrl, totalQty }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Show cart icon only on home and ...
-  const showCartIcon = location.pathname === "/" || location.pathname === "/";
+  // Show header only on home, cart, and form pages
+  const showHeader = ["/", "/cart", "/form", "/admin"].includes(location.pathname);
+
+  if (!showHeader) return null;
+
+  // Show cart icon only on home and cart
+  const showCartIcon = location.pathname === "/";
 
   return (
-    <header className="top-0 z-10 bg-white/70 backdrop-blur-sm shadow-md border-b border-gray-200">
+    <header className="sticky top-0 z-10 bg-white/70 backdrop-blur-sm shadow-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2 relative">
 
         {showCartIcon && (
