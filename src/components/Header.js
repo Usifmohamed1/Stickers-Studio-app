@@ -6,7 +6,7 @@ function Header({ logoUrl, totalQty }) {
   const location = useLocation();
 
   // Show header only on home, cart, and form pages
-  const showHeader = ["/", "/cart", "/form", "/admin"].includes(location.pathname);
+  const showHeader = ["/", "/cart", "/form", "/admin", "/checkout"].includes(location.pathname);
 
   if (!showHeader) return null;
 
