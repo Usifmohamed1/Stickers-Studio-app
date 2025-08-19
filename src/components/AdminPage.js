@@ -252,27 +252,27 @@ function AdminPage({ catalog, setCatalog, onBack, reloadCatalog }) {
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-60 px-3 py-2 border border-gray-300 rounded-2xl text-center"
+            className="w-60 px-3 py-2 border border-black rounded-2xl text-center"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-60 px-3 py-2 border border-gray-300 rounded-2xl text-center"
+            className="w-60 px-3 py-2 border border-black rounded-2xl text-center"
           />
 
           <div className="flex gap-3 mt-2">
             <button
               onClick={onBack}
               type="button"
-              className="w-10 py-2 bg-sky-400 text-white rounded-2xl text-lg font-Chewy shadow-2xl hover:bg-sky-600 active:scale-95 transition-transform"
+              className="w-14 py-2 bg-sky-400 text-white rounded-2xl text-lg font-Chewy shadow-2xl hover:bg-sky-600 active:scale-95 transition-transform border-2 border-black [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
             >
-              ←
+              Back
             </button>
             <button
               type="submit"
-              className="w-24 py-2 bg-green-700 text-white rounded-2xl hover:bg-green-900 active:scale-95 transition-transform"
+              className="w-24 py-2 bg-green-700 text-white rounded-2xl hover:bg-green-900 active:scale-95 transition-transform border-2 border-black [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
             >
               Login
             </button>
@@ -295,9 +295,9 @@ function AdminPage({ catalog, setCatalog, onBack, reloadCatalog }) {
         <div className="flex gap-2">
           <button
             onClick={onBack}
-            className="px-3 py-1.5 rounded-2xl bg-sky-400 text-white text-2xl font-Chewy shadow-2xl  active:scale-95 transition-transform"
+            className="px-3 py-1.5 rounded-2xl bg-sky-400 text-white text-2xl font-Chewy shadow-2xl  active:scale-95 transition-transform border-2 border-black [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
           >
-            ←
+            Back
           </button>
         </div>
         <h2 className="text-2xl">
@@ -402,7 +402,7 @@ function AdminPage({ catalog, setCatalog, onBack, reloadCatalog }) {
         <div className="w-full md:col-span-4 flex justify-center">
           <button
             onClick={addProduct}
-            className="px-4 py-2 rounded-xl bg-green-600 text-white  active:scale-95 transition-transform"
+            className="px-4 py-2 rounded-2xl font-Chewy bg-green-600 text-white  active:scale-95 transition-transform border-2 border-black [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
             disabled={busy}
           >
             {busy ? (
