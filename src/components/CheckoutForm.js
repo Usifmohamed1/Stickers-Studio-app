@@ -94,7 +94,7 @@ function CheckoutForm({ customer, setCustomer, totalQty, totalsByType, onBack, o
         {/* Payment Number / Price */}
         <label className="block">
           <div className="mb-1 text-sm">
-            {payWith === "cash" ? "Payment Price" : "Total Price"}
+            {payWith === "cash" ? "Total Price" : "Total Price"}
           </div>
           <input
             value={payNumber}
