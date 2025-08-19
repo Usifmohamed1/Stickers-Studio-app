@@ -1,0 +1,4 @@
+Admin page done
+cart done
+form done (no qr code)
+home done

@@ -1,0 +1,26 @@
+.cart-header-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.25rem;
+}
+.cart-header-mobile h2 {
+  margin-bottom: 0 !important;
+  width: 100%;
+  text-align: center;
+}
+.cart-header-mobile span {
+  margin-bottom: 0 !important;
+  width: 100%;
+  text-align: center;
+}
+.cart-actions-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
