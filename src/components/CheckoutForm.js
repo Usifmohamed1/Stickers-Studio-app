@@ -5,7 +5,7 @@ function CheckoutForm({ customer, setCustomer, totalQty, totalsByType, onBack, o
 
   // QR code URLs (replace with your actual QR code images/links)
   const qrCodes = {
-    "vodafone": "https://i.postimg.cc/mrKWkzCK/2.png",
+    "vodafoneCash": "https://i.postimg.cc/mrKWkzCK/2.png",
     "instapay": "https://i.postimg.cc/YSvwtfG1/1.png"
   };
 
