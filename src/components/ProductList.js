@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Modal({ open, children }) {
   if (!open) return null;
@@ -25,12 +25,14 @@ function QtyControl({ qty, onInc, onDec, onDelete }) {
         <button
           onClick={onDec}
           className="w-9 h-9 sm:w-[40px] sm:h-[40px] rounded-2xl border border-sky-400 grid place-items-center text-lg sm:text-2xl font-bold active:scale-95 transition-transform font-Chewy text-sky-500 bg-white"
-          aria-label="Decrease" 
+          aria-label="Decrease"
         >
           −
         </button>
       )}
-      <div className="min-w-6 sm:min-w-12 text-center text-base sm:text-xl font-semibold font-Chewy">{qty}</div>
+      <div className="min-w-6 sm:min-w-12 text-center text-base sm:text-xl font-semibold font-Chewy">
+        {qty}
+      </div>
       <button
         onClick={onInc}
         className="w-9 h-9 sm:w-[40px] sm:h-[40px] rounded-2xl border border-sky-400 grid place-items-center text-lg sm:text-2xl font-bold active:scale-95 transition-transform font-Chewy text-sky-500 bg-white"
@@ -66,7 +68,7 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
   }, [items]);
 
   // Helper to check if cart has at least one item
-  const hasItems = Object.values(cart).some(qty => qty > 0);
+  const hasItems = Object.values(cart).some((qty) => qty > 0);
 
   const handleNext = () => {
     if (!hasItems) {
@@ -85,7 +87,7 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
 
   // Clear all items in cart
   const handleClearCart = () => {
-    Object.keys(cart).forEach(id => {
+    Object.keys(cart).forEach((id) => {
       if (cart[id] > 0) addToCart(id, -cart[id]);
     });
   };
@@ -126,7 +128,9 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
       <Modal open={showChoice}>
         <div className="fixed inset-0 z-50 bg-black/50 grid place-items-center p-4 font-Chewy tracking-wide">
           <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-lg">
-            <div className="text-center mb-4 font-bold text-2xl">Choose where to go next</div>
+            <div className="text-center mb-4 font-bold text-2xl">
+              Choose where to go next
+            </div>
             <div className="flex flex-col gap-2 items-center">
               <button
                 className="px-2 py-1 rounded-2xl border-2 border-black bg-sky-400 text-white font-Chewy text-xl active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
@@ -148,24 +152,44 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
       <div className="fixed top-0 left-0 w-full z-20 bg-white/95 shadow-lg border-b border-gray-200 backdrop-blur-md">
         <div className="flex items-center justify-between px-4 py-7 md:py-3">
           <div className="flex-1 flex justify-start md:justify-center">
-            <button onClick={handleBack} className="px-4 py-2 rounded-2xl border-2 border-black bg-sky-400 text-white text-lg md:text-2xl font-Chewy shadow-lg active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] hover:bg-sky-500 focus:outline-none">
+            <button
+              onClick={handleBack}
+              className="px-4 py-2 rounded-2xl border-2 border-black bg-sky-400 text-white text-lg md:text-2xl font-Chewy shadow-lg active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] hover:bg-sky-500 focus:outline-none"
+            >
               Back
             </button>
           </div>
           <div className="flex-1 flex justify-center">
-            <h2 className="tracking-wider text-[33px] md:text-[62px] font-bold whitespace-nowrap font-Chewy text-sky-400 active:scale-95 transition-transform md:[text-shadow:_1px_5px_0_#000,_2px_1px_0_#000] [text-shadow:_1px_3px_0_#000,_2px_1px_0_#000]">
-              {category === "stickers" ? "Stickers" : "Posters"}
-            </h2>
+            {/* Center logo in the fixed top bar instead of a text title */}
+            <img
+              src="/logo.png"
+              alt="logo"
+              className="w-16 h-16 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-contain active:scale-95 transition-transform"
+            />
           </div>
           <div className="flex-1 flex justify-end md:justify-center">
-            <button onClick={handleNext} className="px-4 py-2 rounded-2xl border-2 border-black bg-sky-400 text-white text-lg md:text-2xl font-Chewy shadow-lg active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] hover:bg-sky-500 focus:outline-none">
+            <button
+              onClick={handleNext}
+              className="px-4 py-2 rounded-2xl border-2 border-black bg-sky-400 text-white text-lg md:text-2xl font-Chewy shadow-lg active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] hover:bg-sky-500 focus:outline-none"
+            >
               Next
             </button>
           </div>
         </div>
       </div>
-  {/* Spacer to prevent content overlap with fixed header */}
-  <div style={{height: '120px'}}></div>
+      {/* Spacer to prevent content overlap with fixed header */}
+      <div className="h-[110px] md:h-[125px]"></div>
+      {/* Page title (non-fixed, scrolls with content) */}
+      <div className="px-4 mb-4 ">
+        <h1 className="text-center tracking-wider text-[40px] md:text-7xl font-bold font-Chewy text-sky-400 [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]">
+          {category === "stickers" ? "Stickers" : "Posters"}
+        </h1>
+        <div>
+          <p className="text-gray-600 text-sm md:text-[20px] font-Chewy flex justify-center items-center">
+            Choose your vibe, rock it with {category === "stickers" ? "Stickers" : "Posters"}
+          </p>
+        </div>
+      </div>
 
       {/* Warning Modal */}
       <Modal open={showWarning}>
@@ -176,48 +200,61 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
 
       {/* Confirm Modal */}
       <Modal open={showConfirm}>
-    <div className="fixed inset-0 z-50 bg-black/50 grid place-items-center p-4 font-Chewy tracking-wide">
-      <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-lg">
-        <h3 className="text-lg font-bold mb-2">Are you sure you want to leave?</h3>
-        <p className="text-sm text-gray-600 mb-4">You have {Object.values(cart).reduce((total, qty) => total + qty, 0)} items in your cart.</p>
-        <div className="flex gap-2 justify-end">
-          <button
-            onClick={() => handleConfirmLeave(false)}
-            className="px-4 py-2 rounded-2xl bg-white active:scale-95 transition-transform border-2 border-black"
-          >
-            No
-          </button>
-          <button
-            onClick={() => handleConfirmLeave(true)}
-            className="px-4 py-2 rounded-2xl bg-red-600 text-white active:scale-95 transition-transform border-2 border-black"
-          >
-            Yes
-          </button>
+        <div className="fixed inset-0 z-50 bg-black/50 grid place-items-center p-4 font-Chewy tracking-wide">
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-lg">
+            <h3 className="text-lg font-bold mb-2">
+              Are you sure you want to leave?
+            </h3>
+            <p className="text-sm text-gray-600 mb-4">
+              You have{" "}
+              {Object.values(cart).reduce((total, qty) => total + qty, 0)} items
+              in your cart.
+            </p>
+            <div className="flex gap-2 justify-end">
+              <button
+                onClick={() => handleConfirmLeave(false)}
+                className="px-4 py-2 rounded-2xl bg-white active:scale-95 transition-transform border-2 border-black"
+              >
+                No
+              </button>
+              <button
+                onClick={() => handleConfirmLeave(true)}
+                className="px-4 py-2 rounded-2xl bg-red-600 text-white active:scale-95 transition-transform border-2 border-black"
+              >
+                Yes
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
       </Modal>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-        {shuffled.map(p => (
-          <div key={p.id} className="rounded-2xl overflow-hidden shadow-xl bg-white flex flex-col">
+        {shuffled.map((p) => (
+          <div
+            key={p.id}
+            className="rounded-2xl overflow-hidden shadow-xl bg-white flex flex-col"
+          >
             <div className={"aspect-[215/297] relative"}>
-              <img src={p.img} alt="product" className="absolute inset-0 w-full h-full object-contain" />
+              <img
+                src={p.img}
+                alt="product"
+                className="absolute inset-0 w-full h-full object-contain"
+              />
             </div>
             <div className="p-3 flex-1 flex flex-col gap-3">
-              <QtyControl 
-                qty={cart[p.id] || 0} 
-                onInc={() => handleAddToCart(p.id, +1)} 
-                onDec={() => handleAddToCart(p.id, -1)} 
+              <QtyControl
+                qty={cart[p.id] || 0}
+                onInc={() => handleAddToCart(p.id, +1)}
+                onDec={() => handleAddToCart(p.id, -1)}
               />
               <div className="flex justify-center">
-              <button 
-                onClick={() => handleAddToCart(p.id, +1)} 
-                className="w-40 px-3 py-2 rounded-2xl bg-sky-500 text-white text-md md:text-[22px] shadow-lg active:scale-95 transition-transform whitespace-nowrap overflow-hidden text-ellipsis font-Chewy item "
+                <button
+                  onClick={() => handleAddToCart(p.id, +1)}
+                  className="w-40 px-3 py-2 rounded-2xl bg-sky-500 text-white text-md md:text-[22px] shadow-lg active:scale-95 transition-transform whitespace-nowrap overflow-hidden text-ellipsis font-Chewy item "
                 >
-                Add To Cart
-              </button>
-                </div>
+                  Add To Cart
+                </button>
+              </div>
             </div>
           </div>
         ))}
