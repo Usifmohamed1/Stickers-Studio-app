@@ -148,7 +148,7 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
         <div className="flex-1 flex justify-start">
           <button onClick={handleBack} className="px-3 py-1.5 rounded-2xl border-2 border-black bg-sky-400 text-white text-2xl font-Chewy shadow-2xl active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
           >
-            ←</button>
+            Back</button>
         </div>
         <div className="flex-1 flex justify-center">
           <h2 className="tracking-wider text-[22px] md:text-[62px] font-bold whitespace-nowrap font-Chewy text-sky-400 active:scale-95 transition-transform md:[text-shadow:_1px_5px_0_#000,_2px_1px_0_#000] [text-shadow:_1px_3px_0_#000,_2px_1px_0_#000]">{category === "stickers" ? "Stickers" : "Posters"}</h2>
@@ -156,7 +156,7 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
         <div className="flex-1 flex justify-end">
           <button onClick={handleNext}className="px-3 py-1.5 rounded-2xl border-2 border-black bg-sky-400 text-white text-2xl font-Chewy shadow-2xl active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
           >
-          →</button>
+          Next</button>
         </div>
       </div>
 
