@@ -42,11 +42,11 @@ function Home({ gotoCategory, onGoCart, totalQty }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-14 mb-10 mt-5 active:scale-95 transition-transform">
         <CategoryCard
           onClick={() => gotoCategory("stickers")}
-          img="https://i.postimg.cc/bNW9QV3n/stickers.png"
+          img="https://i.postimg.cc/Dw3MjSXP/2.png"
         />
         <CategoryCard
           onClick={() => gotoCategory("posters")}
-          img="https://i.postimg.cc/nVYLKX2G/pos-358-x-452-px.png"
+          img="https://i.postimg.cc/Z5PD1JPt/1.png"
         />
       </div>
     </section>
