@@ -144,21 +144,28 @@ function ProductList({ category, items, cart, addToCart, onNext, onBack }) {
           </div>
         </div>
       </Modal>
-      <div className="flex items-center justify-between mb-4 w-full">
-        <div className="flex-1 flex justify-start">
-          <button onClick={handleBack} className="px-3 py-1.5 rounded-2xl border-2 border-black bg-sky-400 text-white text-2xl font-Chewy shadow-2xl active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
-          >
-            Back</button>
-        </div>
-        <div className="flex-1 flex justify-center">
-          <h2 className="tracking-wider text-[22px] md:text-[62px] font-bold whitespace-nowrap font-Chewy text-sky-400 active:scale-95 transition-transform md:[text-shadow:_1px_5px_0_#000,_2px_1px_0_#000] [text-shadow:_1px_3px_0_#000,_2px_1px_0_#000]">{category === "stickers" ? "Stickers" : "Posters"}</h2>
-        </div>
-        <div className="flex-1 flex justify-end">
-          <button onClick={handleNext}className="px-3 py-1.5 rounded-2xl border-2 border-black bg-sky-400 text-white text-2xl font-Chewy shadow-2xl active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000]"
-          >
-          Next</button>
+      {/* Fixed Header & Navigation */}
+      <div className="fixed top-0 left-0 w-full z-20 bg-white/95 shadow-lg border-b border-gray-200" style={{backdropFilter: 'blur(2px)'}}>
+        <div className="flex items-center justify-between px-4 py-3">
+          <div className="flex-1 flex justify-start">
+            <button onClick={handleBack} className="px-4 py-2 rounded-2xl border-2 border-black bg-sky-400 text-white text-2xl font-Chewy shadow-lg active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] hover:bg-sky-500 focus:outline-none">
+              Back
+            </button>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <h2 className="tracking-wider text-[22px] md:text-[62px] font-bold whitespace-nowrap font-Chewy text-sky-400 active:scale-95 transition-transform md:[text-shadow:_1px_5px_0_#000,_2px_1px_0_#000] [text-shadow:_1px_3px_0_#000,_2px_1px_0_#000]">
+              {category === "stickers" ? "Stickers" : "Posters"}
+            </h2>
+          </div>
+          <div className="flex-1 flex justify-end">
+            <button onClick={handleNext} className="px-4 py-2 rounded-2xl border-2 border-black bg-sky-400 text-white text-2xl font-Chewy shadow-lg active:scale-95 transition-transform [text-shadow:_1px_1px_0_#000,_2px_1px_0_#000] hover:bg-sky-500 focus:outline-none">
+              Next
+            </button>
+          </div>
         </div>
       </div>
+  {/* Spacer to prevent content overlap with fixed header */}
+  <div style={{height: '120px'}}></div>
 
       {/* Warning Modal */}
       <Modal open={showWarning}>
