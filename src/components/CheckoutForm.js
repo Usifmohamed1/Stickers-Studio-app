@@ -1,5 +1,5 @@
 function CheckoutForm({ customer, setCustomer, totalQty, totalsByType, onBack, onSubmit, loading }) {
-  const gov = customer.governorate || "";
+  const gov = customer.governorate || "Alexandria";
   const payWith = customer.payWith || "cash";
   const payNumber = customer.payNumber || "";
 
