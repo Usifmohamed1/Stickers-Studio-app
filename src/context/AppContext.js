@@ -131,12 +131,36 @@ export function AppProvider({ children }) {
 
     try {
       setBusy(true);
-      await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        mode: "no-cors",
-      });
+      // Debug: print payload so we can inspect what is being sent
+      console.log("Order payload:", payload);
+
+      // First try a normal CORS POST so the server receives JSON with correct headers.
+      // If the Apps Script isn't configured for CORS this will throw — in that case
+      // we fall back to a no-cors POST so the request still goes out (opaque).
+      let res;
+      try {
+        res = await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch (e) {
+        console.warn("CORS POST failed, retrying with no-cors fallback:", e);
+        // fallback: fire a no-cors request (opaque) so browsers that can't reach
+        // the Apps Script via CORS still send the data. Note: the server will
+        // receive the body but the response is opaque and cannot be inspected.
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          mode: "no-cors",
+        });
+        res = { ok: true };
+      }
+
+      if (res && res.ok === false) {
+        throw new Error('failed to send order (bad response)');
+      }
       setModal({
         title: "Order Sent!",
         msg: "Your order was sent successfully.",
@@ -145,10 +169,11 @@ export function AppProvider({ children }) {
         onCancel: null,
         cancelText: null
       });
-      setTimeout(() => {
+        setTimeout(() => {
         setModal(null);
         clearCart();
-        setCustomer({ name: "", phone: "", governorate: "", otherGov: "", notes: "" });
+  // keep payWith default to cash and reset governorate to Alexandria
+  setCustomer({ name: "", phone: "", governorate: "Alexandria", otherGov: "", payWith: "cash", payNumber: "", notes: "" });
       }, 1500);
     } catch (err) {
       console.error(err);
